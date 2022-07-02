@@ -1,7 +1,10 @@
 from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
-# Create your models here.
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
+
 class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
@@ -9,7 +12,7 @@ class Listing(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=30)
-    description = models.TextField(blank=True)
+    description = RichTextUploadingField(blank=True)
     price = models.IntegerField()
     bedrooms = models.IntegerField()
     bathrooms = models.DecimalField(max_digits=2, decimal_places=1)

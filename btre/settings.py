@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     "realtors.apps.RealtorsConfig",
     "accounts.apps.AccountsConfig",
     "contacts.apps.ContactsConfig",
+
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -82,9 +85,9 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "btredb",
+        'NAME': "",
         "USER": "postgres",
-        "PASSWORD": "home.2020",
+        "PASSWORD": "",
         "HOST": "localhost",
     }
 }
@@ -124,15 +127,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "btre/static"),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "btre/static"),]
 
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "media/"
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
 # Default primary key field type
